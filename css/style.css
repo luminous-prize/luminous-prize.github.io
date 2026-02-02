@@ -38,6 +38,15 @@ h2 {
   padding-bottom: 6px;
 }
 
+h3 {
+  margin-top: 24px;
+  color: #222;
+}
+
+section ul li {
+  margin-bottom: 16px;
+}
+
 .project {
   margin-top: 32px;
 }
