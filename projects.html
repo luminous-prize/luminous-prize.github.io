@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects – Utkarsh Singh</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Projects</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="resume.pdf" target="_blank">Resume</a>
+      <a href="https://github.com/luminous-prize" target="_blank">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="project">
+      <h2>Ransomware Threat Detection for FlashSystem</h2>
+      <p class="meta">IBM · ML Systems · Time-Series Security</p>
+      <p>
+        Built a production-grade ransomware detection system using ensemble classifiers
+        trained on over 500k FlashCore Module filesystem traces. The system was designed
+        to generalize across ransomware families while maintaining an extremely low
+        false-positive rate on live workloads.
+      </p>
+      <ul>
+        <li>Trained SnapML-based ensemble models with automated re-balancing and cross-family validation</li>
+        <li>Achieved &lt;1% false-positive rate on production workloads</li>
+        <li>Integrated inference into the Storage Virtualize stack to trigger early alerts and immutable snapshots</li>
+      </ul>
+      <p class="tech">Python, SnapML, Scikit-learn, Time-Series Analysis</p>
+    </section>
+
+    <section class="project">
+      <h2>Workload Placement Advisor</h2>
+      <p class="meta">IBM · Forecasting · Decision Optimization</p>
+      <p>
+        Designed a forecasting-driven placement system for block-level I/O demand across
+        large-scale enterprise storage arrays. Benchmarked statistical and deep learning
+        models and operationalized forecasts into concrete migration and placement decisions.
+      </p>
+      <ul>
+        <li>Benchmarked ARIMA-style models against PatchTST and TTM across 100+ FlashSystem arrays</li>
+        <li>Improved out-of-sample forecast accuracy by 25%</li>
+        <li>Prevented nearly 10,000 potential SLA violations through forecast-aware optimization</li>
+      </ul>
+      <p class="tech">Python, Time-Series Forecasting, PatchTST, TTM</p>
+    </section>
+
+    <section class="project">
+      <h2>LLM Sensitivity to Politeness and Emphasis</h2>
+      <p class="meta">Johns Hopkins · LLM Evaluation</p>
+      <p>
+        Studied how linguistic framing affects reasoning reliability and compute usage
+        in modern LLMs. Evaluated multiple prompt variants on GSM8K and quantified the
+        accuracy–compute tradeoff using paired statistical tests.
+      </p>
+      <ul>
+        <li>Evaluated Llama 3, GPT-5, and Claude Sonnet on controlled linguistic variants</li>
+        <li>Observed &lt;1.5% accuracy variance but 12–18% higher token usage</li>
+        <li>Validated results with McNemar tests, t-tests, and effect-size analysis</li>
+      </ul>
+      <p class="tech">Python, LLM Evaluation, Statistical Testing</p>
+    </section>
+
+    <section class="project">
+      <h2>Multilingual Mixture-of-Experts Transformer</h2>
+      <p class="meta">Johns Hopkins · Deep Learning</p>
+      <p>
+        Implemented a sparse MoE Transformer for multilingual language modeling,
+        scaling parameter count without increasing inference FLOPs. Analyzed expert
+        specialization behavior at token level across languages and scripts.
+      </p>
+      <ul>
+        <li>Implemented top-k routing and load-balancing loss in PyTorch</li>
+        <li>Scaled model capacity by 3× at constant inference cost</li>
+        <li>Reduced routing entropy by 18–25% through language-aware specialization</li>
+      </ul>
+      <p class="tech">PyTorch, Transformers, MoE Architectures</p>
+    </section>
+
+    <section class="project">
+      <h2>Gen-AI Ticket Deflection System</h2>
+      <p class="meta">IBM · Applied LLM Systems</p>
+      <p>
+        Built a GDPR-safe ticket deflection pipeline that clustered historical support
+        tickets and generated validated FAQs to reduce operational load on support teams.
+      </p>
+      <ul>
+        <li>Clustered 26,000+ tickets into representative knowledge groups</li>
+        <li>Reduced Level 2 support workload by ~30%</li>
+        <li>Cut mean time to resolution by 20%</li>
+      </ul>
+      <p class="tech">LLMs, NLP, Clustering, Information Retrieval</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© Utkarsh Singh</p>
+  </footer>
+</body>
+</html>
