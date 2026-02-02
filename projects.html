@@ -17,6 +17,57 @@
   </header>
 
   <main>
+    <section class="project">
+      <h2>Credit Default Risk Modeling</h2>
+      <p class="meta">Johns Hopkins · Quantitative Modeling</p>
+      <p>
+        Developed a credit default prediction model using regularized logistic regression,
+        emphasizing temporal stability, asymmetric error costs, and decision-aware calibration
+        rather than raw accuracy.
+      </p>
+      <ul>
+        <li>Engineered behaviorally motivated features from utilization, payment history, and exposure dynamics</li>
+        <li>Achieved AUC 0.82 and KS 0.41, improving rank-ordering power by 17% over a naïve baseline</li>
+        <li>Evaluated performance under temporal splits and cost-sensitive objectives</li>
+        <li>Reduced false negatives by 24% at fixed precision, reflecting real credit risk asymmetry</li>
+      </ul>
+      <p class="tech">Python, Logistic Regression, Risk Modeling, Statistical Evaluation</p>
+    </section>
+
+    <section class="project">
+      <h2>IBM Storage Insights MCP Server</h2>
+      <p class="meta">Open Source · Agentic AI · Observability Systems</p>
+      <p>
+        Open-sourced a Model Context Protocol (MCP) server that exposes IBM Storage Insights
+        observability capabilities to agent-based AI workflows. The server enables external
+        AI agents to query, diagnose, and reason over storage telemetry through a structured,
+        extensible interface.
+      </p>
+      <ul>
+        <li>Designed a Python-based MCP server exposing 13 observability tools backed by Storage Insights APIs</li>
+        <li>Enabled seamless integration with agent frameworks and Claude Desktop via stdio and streamable HTTP</li>
+        <li>Engineered multi-tenant credential handling, structured logging, and extensible API routing</li>
+        <li>Reduced manual diagnosis latency by enabling autonomous, tool-using agents for storage health analysis</li>
+      </ul>
+      <p class="tech">Python, MCP, LLM Tooling, Observability APIs</p>
+    </section>
+
+    <section class="project">
+      <h2>GenAI Observability Chatbot for Storage Insights</h2>
+      <p class="meta">IBM · LLM Systems · Applied NLP</p>
+      <p>
+        Built a natural-language observability chatbot that translates user queries into
+        structured Storage Insights API calls, enabling conversational access to alerts,
+        metrics, and system diagnostics.
+      </p>
+      <ul>
+        <li>Implemented intent detection and entity extraction to map free-text queries to REST APIs</li>
+        <li>Integrated Granite and Llama models via IBM Watsonx for reliable production inference</li>
+        <li>Supported alerts, metrics, notifications, volumes, and tenant-level diagnostics</li>
+        <li>Designed as a community-driven, extensible reference for GenAI-enabled AIOps workflows</li>
+      </ul>
+      <p class="tech">LLMs, Prompt Engineering, NLP, REST APIs</p>
+    </section>
 
     <section class="project">
       <h2>Ransomware Threat Detection for FlashSystem</h2>
