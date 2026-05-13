@@ -6,9 +6,11 @@
   <title>Projects – Utkarsh Singh</title>
   <link rel="stylesheet" href="css/style.css"/>
 </head>
+
 <body>
   <header>
     <h1>Projects</h1>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="resume.pdf" target="_blank">Resume</a>
@@ -17,203 +19,262 @@
   </header>
 
   <main>
+
     <section class="project">
       <h2>Credit Default Risk Modeling</h2>
       <p class="meta">Johns Hopkins · Quantitative Modeling</p>
+
       <p>
         Developed a credit default prediction model using regularized logistic regression,
         emphasizing temporal stability, asymmetric error costs, and decision-aware calibration
         rather than raw accuracy.
       </p>
+
       <ul>
         <li>Engineered behaviorally motivated features from utilization, payment history, and exposure dynamics</li>
         <li>Achieved AUC 0.82 and KS 0.41, improving rank-ordering power by 17% over a naïve baseline</li>
         <li>Evaluated performance under temporal splits and cost-sensitive objectives</li>
         <li>Reduced false negatives by 24% at fixed precision, reflecting real credit risk asymmetry</li>
       </ul>
-      <p class="tech">Python, Logistic Regression, Risk Modeling, Statistical Evaluation</p>
+
+      <p class="tech">Python · Logistic Regression · Risk Modeling · Statistical Evaluation</p>
+    </section>
+
+    <section class="project">
+      <h2>Canadian Market Analysis — Agentic RAG over Earnings Transcripts</h2>
+      <p class="meta">Johns Hopkins · Agentic AI · Financial NLP · Retrieval Systems</p>
+
+      <p>
+        Built an agentic Retrieval-Augmented Generation (RAG) system for structured
+        financial reasoning over Canadian earnings call transcripts. The platform routes
+        analyst-style questions through a stateful LangGraph workflow combining semantic
+        retrieval, SQL aggregation, sentiment analysis, topic modeling, and self-correcting
+        synthesis loops.
+      </p>
+
+      <ul>
+        <li>Processed 83 earnings call transcripts across 13 major Canadian equities spanning Q2 2024 – Q1 2026</li>
+        <li>Built a LangGraph agent with routing, retrieval grading, hallucination detection, and reformulation loops</li>
+        <li>Integrated PostgreSQL + pgvector semantic retrieval using 768-D local embeddings</li>
+        <li>Replaced LDA with BERTopic for stable topic discovery and cleaner financial topic separation</li>
+        <li>Implemented speaker-aware chunking enabling management-vs-analyst sentiment gap analysis</li>
+        <li>Added sector-aware ticker resolution ("Canadian banks" → RY, TD, BNS)</li>
+        <li>Combined FinBERT sentiment scoring with OpenRouter synthesis pipelines</li>
+      </ul>
+
+      <p class="tech">LangGraph · PostgreSQL · pgvector · BERTopic · FinBERT · FastAPI · Ollama · OpenRouter · Docker</p>
+    </section>
+
+    <section class="project">
+      <h2>Maternal Morbidity ML — Research Comprehension System</h2>
+      <p class="meta">Johns Hopkins · Research AI · Hybrid Retrieval Systems</p>
+
+      <p>
+        Designed a corpus-reasoning system for answering natural-language questions across
+        99 machine learning papers focused on maternal morbidity and adverse pregnancy outcomes.
+        Unlike standard vector-only RAG systems, the platform combines symbolic reasoning,
+        citation-graph traversal, SQL aggregation, and semantic retrieval to support complex
+        research workflows.
+      </p>
+
+      <ul>
+        <li>Built a hybrid architecture combining SQLite, FAISS, and NetworkX citation graphs</li>
+        <li>Indexed ~12,000 claim units using local bge-small-en-v1.5 embeddings</li>
+        <li>Implemented typed query routing across eight reasoning tiers including contradiction detection and quantitative reasoning</li>
+        <li>Automated structured extraction from 99 papers using Anthropic Haiku</li>
+        <li>Achieved sub-$0.002 average query cost at mid-budget inference settings</li>
+        <li>Generated fully cited synthesis outputs with section-level grounding</li>
+      </ul>
+
+      <p class="tech">FAISS · SQLite · NetworkX · Anthropic Haiku · OpenAlex · Python · Hybrid RAG · Information Retrieval</p>
     </section>
 
     <section class="project">
       <h2>IBM Storage Insights MCP Server</h2>
       <p class="meta">Open Source · Agentic AI · Observability Systems</p>
+
       <p>
-        Open-sourced a Model Context Protocol (MCP) server that exposes IBM Storage Insights
-        observability capabilities to agent-based AI workflows. The server enables external
-        AI agents to query, diagnose, and reason over storage telemetry through a structured,
-        extensible interface.
+        Open-sourced a Model Context Protocol (MCP) server exposing IBM Storage Insights
+        observability capabilities to agent-based AI workflows.
       </p>
+
       <ul>
-        <li>Designed a Python-based MCP server exposing 13 observability tools backed by Storage Insights APIs</li>
-        <li>Enabled seamless integration with agent frameworks and Claude Desktop via stdio and streamable HTTP</li>
-        <li>Engineered multi-tenant credential handling, structured logging, and extensible API routing</li>
-        <li>Reduced manual diagnosis latency by enabling autonomous, tool-using agents for storage health analysis</li>
+        <li>Designed a Python MCP server exposing 13 observability tools backed by Storage Insights APIs</li>
+        <li>Enabled integration with agent frameworks and Claude Desktop via stdio and streamable HTTP</li>
+        <li>Implemented multi-tenant credential handling, structured logging, and extensible API routing</li>
+        <li>Enabled autonomous AI agents to diagnose storage infrastructure issues through tool usage</li>
       </ul>
-      <p class="tech">Python, MCP, LLM Tooling, Observability APIs</p>
+
+      <p class="tech">Python · MCP · LLM Tooling · Observability APIs</p>
     </section>
 
     <section class="project">
       <h2>GenAI Observability Chatbot for Storage Insights</h2>
-      <p class="meta">Open Source · Applied NLPs · LLM System</p>
+      <p class="meta">Open Source · Applied NLP · LLM Systems</p>
+
       <p>
-        Built a natural-language observability chatbot that translates user queries into
-        structured Storage Insights API calls, enabling conversational access to alerts,
-        metrics, and system diagnostics.
+        Built a natural-language observability chatbot translating free-text user questions
+        into structured Storage Insights API calls.
       </p>
+
       <ul>
-        <li>Implemented intent detection and entity extraction to map free-text queries to REST APIs</li>
-        <li>Integrated Granite and Llama models via IBM Watsonx for reliable production inference</li>
-        <li>Supported alerts, metrics, notifications, volumes, and tenant-level diagnostics</li>
-        <li>Designed as a community-driven, extensible reference for GenAI-enabled AIOps workflows</li>
+        <li>Implemented intent detection and entity extraction for observability APIs</li>
+        <li>Integrated Granite and Llama models via IBM Watsonx</li>
+        <li>Supported alerts, metrics, notifications, volumes, and tenant diagnostics</li>
+        <li>Designed as a community-driven reference architecture for GenAI-enabled AIOps workflows</li>
       </ul>
-      <p class="tech">LLMs, Prompt Engineering, NLP, REST APIs</p>
+
+      <p class="tech">LLMs · Prompt Engineering · NLP · REST APIs</p>
     </section>
 
     <section class="project">
       <h2>Ransomware Threat Detection for FlashSystem</h2>
       <p class="meta">IBM · ML Systems · Time-Series Security</p>
+
       <p>
         Built a production-grade ransomware detection system using ensemble classifiers
-        trained on over 500k FlashCore Module filesystem traces. The system was designed
-        to generalize across ransomware families while maintaining an extremely low
-        false-positive rate on live workloads.
+        trained on over 500k FlashCore Module filesystem traces.
       </p>
+
       <ul>
         <li>Trained SnapML-based ensemble models with automated re-balancing and cross-family validation</li>
         <li>Achieved &lt;1% false-positive rate on production workloads</li>
         <li>Integrated inference into the Storage Virtualize stack to trigger early alerts and immutable snapshots</li>
       </ul>
-      <p class="tech">Python, SnapML, Scikit-learn, Time-Series Analysis</p>
+
+      <p class="tech">Python · SnapML · Scikit-learn · Time-Series Analysis</p>
     </section>
 
     <section class="project">
       <h2>Workload Placement Advisor</h2>
       <p class="meta">IBM · Forecasting · Decision Optimization</p>
+
       <p>
-        Designed a forecasting-driven placement system for block-level I/O demand across
-        large-scale enterprise storage arrays. Benchmarked statistical and deep learning
-        models and operationalized forecasts into concrete migration and placement decisions.
+        Designed a forecasting-driven placement system for enterprise block-storage
+        I/O demand prediction and optimization.
       </p>
+
       <ul>
-        <li>Benchmarked ARIMA-style models against PatchTST and TTM across 100+ FlashSystem arrays</li>
+        <li>Benchmarked ARIMA-style models against PatchTST and Tiny Time Mixer (TTM)</li>
         <li>Improved out-of-sample forecast accuracy by 25%</li>
         <li>Prevented nearly 10,000 potential SLA violations through forecast-aware optimization</li>
       </ul>
-      <p class="tech">Python, Time-Series Forecasting, PatchTST, TTM</p>
+
+      <p class="tech">Python · Time-Series Forecasting · PatchTST · TTM</p>
     </section>
 
     <section class="project">
       <h2>LLM Sensitivity to Politeness and Emphasis</h2>
       <p class="meta">Johns Hopkins · LLM Evaluation</p>
+
       <p>
         Studied how linguistic framing affects reasoning reliability and compute usage
-        in modern LLMs. Evaluated multiple prompt variants on GSM8K and quantified the
-        accuracy–compute tradeoff using paired statistical tests.
+        in modern large language models.
       </p>
+
       <ul>
-        <li>Evaluated Llama 3, GPT-5, and Claude Sonnet on controlled linguistic variants</li>
-        <li>Observed &lt;1.5% accuracy variance but 12–18% higher token usage</li>
-        <li>Validated results with McNemar tests, t-tests, and effect-size analysis</li>
+        <li>Evaluated Llama 3, GPT-5, and Claude Sonnet on controlled prompt variants</li>
+        <li>Observed minimal accuracy variance but significantly higher token usage</li>
+        <li>Validated findings using McNemar tests, t-tests, and effect-size analysis</li>
       </ul>
-      <p class="tech">Python, LLM Evaluation, Statistical Testing</p>
+
+      <p class="tech">Python · LLM Evaluation · Statistical Testing</p>
     </section>
 
     <section class="project">
       <h2>Multilingual Mixture-of-Experts Transformer</h2>
       <p class="meta">Johns Hopkins · Deep Learning</p>
+
       <p>
-        Implemented a sparse MoE Transformer for multilingual language modeling,
-        scaling parameter count without increasing inference FLOPs. Analyzed expert
-        specialization behavior at token level across languages and scripts.
+        Implemented a sparse Mixture-of-Experts Transformer for multilingual language modeling.
       </p>
+
       <ul>
         <li>Implemented top-k routing and load-balancing loss in PyTorch</li>
-        <li>Scaled model capacity by 3× at constant inference cost</li>
-        <li>Reduced routing entropy by 18–25% through language-aware specialization</li>
+        <li>Scaled parameter count by 3× at constant inference FLOPs</li>
+        <li>Analyzed token-level expert specialization across multiple languages</li>
       </ul>
-      <p class="tech">PyTorch, Transformers, MoE Architectures</p>
+
+      <p class="tech">PyTorch · Transformers · MoE Architectures</p>
     </section>
 
     <section class="project">
       <h2>Gen-AI Ticket Deflection System</h2>
       <p class="meta">IBM · Applied LLM Systems</p>
+
       <p>
-        Built a GDPR-safe ticket deflection pipeline that clustered historical support
-        tickets and generated validated FAQs to reduce operational load on support teams.
+        Built a GDPR-safe support-ticket deflection pipeline using clustering and
+        retrieval-driven FAQ generation.
       </p>
+
       <ul>
-        <li>Clustered 26,000+ tickets into representative knowledge groups</li>
+        <li>Clustered 26,000+ support tickets into representative knowledge groups</li>
         <li>Reduced Level 2 support workload by ~30%</li>
-        <li>Cut mean time to resolution by 20%</li>
+        <li>Reduced mean time to resolution by 20%</li>
       </ul>
-      <p class="tech">LLMs, NLP, Clustering, Information Retrieval</p>
+
+      <p class="tech">LLMs · NLP · Clustering · Information Retrieval</p>
     </section>
 
     <section>
       <h2>Publications</h2>
-    
+
       <h3>Peer-Reviewed Publications</h3>
+
       <ul>
         <li>
           <strong>Utkarsh Singh</strong>, Akarsh Singh, Parul Jadhav, Sarish Gyale, Shweta Iyer.<br/>
           <em>A Machine Learning Approach to Predict, Optimize, and Build Fantasy Cricket Teams Using Evolutionary Algorithms.</em><br/>
-          Lecture Notes in Networks and Systems, Proceedings of the International Conference on Computational Intelligence and Information Retrieval, 2026.<br/>
-          <a href="https://doi.org/10.1007/978-3-032-04539-3_7" target="_blank">DOI</a>
+          Lecture Notes in Networks and Systems, ICCIIR 2026.
         </li>
-    
+
         <li>
           Sarish Gyale, <strong>Utkarsh Singh</strong>, Yashvardhan Tekavade, Parul Jadhav.<br/>
           <em>Transforming Precision Agriculture through Deep Learning: CNN Encoder-Decoders and a Hybrid YOLOv8–SAM Solution for Advanced Grape Cluster Segmentation.</em><br/>
-          IEEE International Conference on Sustainable Technologies for Humanity and Smart World (HSWTech), 2025.<br/>
-          <a href="https://doi.org/10.1109/hswtech64936.2025.11278142" target="_blank">DOI</a>
+          IEEE HSWTech 2025.
         </li>
-    
+
         <li>
           <strong>Utkarsh Singh</strong>, Arti Khaparde, Anish Rao, Shray Gupta, Aanjney Gupta.<br/>
           <em>AI Meditation App: Enhancing Mindfulness Through AI and EEG Integration.</em><br/>
-          Iconic Research and Engineering Journals, 2025.<br/>
-          <a href="https://www.irejournals.com/paper-details/1706941" target="_blank">Link</a>
+          IRE Journals, 2025.
         </li>
-    
+
         <li>
           <strong>Utkarsh Singh</strong>, Vidushi Sharma, Arti Khaparde, Anustauv Roy, Madhav Gaggad.<br/>
           <em>Battery Temperature Forecasting Method: Li-Ion Batteries Case Study.</em><br/>
-          Proceedings of the Ninth International Congress on Information and Communication Technology (ICICT), Lecture Notes in Networks and Systems, 2024.<br/>
-          <a href="https://doi.org/10.1007/978-981-97-3556-3_5" target="_blank">DOI</a>
+          ICICT 2024.
         </li>
       </ul>
-    
+
       <h3>IBM Redbooks & Technical Publications</h3>
+
       <p>
         <strong>IBM Redbooks Gold Author</strong>
       </p>
+
       <ul>
         <li>
-          <strong>Utkarsh Singh</strong>, Vasfi Gucer, David Green, Sumesh Pahuja, Sushil Sharma, Ramakrishna Vadla.<br/>
+          <strong>Utkarsh Singh</strong>, Vasfi Gucer, David Green, Sumesh Pahuja,
+          Sushil Sharma, Ramakrishna Vadla.<br/>
           <em>Ecosystem Integration with IBM Storage Insights.</em><br/>
-          IBM Redpaper, 2025.<br/>
-          <a href="https://www.redbooks.ibm.com/abstracts/redp5754.html" target="_blank">Link</a>
+          IBM Redpaper, 2025.
         </li>
-    
+
         <li>
-          <strong>Utkarsh Singh</strong>, Archana Chinnaiah, David Green, Keigo Matsubara, Ramakrishna Vadla, Vasfi Gucer.<br/>
+          <strong>Utkarsh Singh</strong>, Archana Chinnaiah, David Green,
+          Keigo Matsubara, Ramakrishna Vadla, Vasfi Gucer.<br/>
           <em>Intelligent Storage Management with Artificial Intelligence for IT Operations (AIOps) using IBM Storage Insights.</em><br/>
-          IBM Redpaper, 2025.<br/>
-          <a href="https://www.redbooks.ibm.com/abstracts/redp5755.html" target="_blank">Link</a>
+          IBM Redpaper, 2025.
         </li>
-    
+
         <li>
-          <strong>Utkarsh Singh</strong>, Andy Härchen, Archana Chinnaiah, David Green, Dirk Preinl, Hrvoje Stanilovic, Keigo Matsubara, Meng Gao.<br/>
+          <strong>Utkarsh Singh</strong>, Andy Härchen, Archana Chinnaiah,
+          David Green, Dirk Preinl, Hrvoje Stanilovic, Keigo Matsubara, Meng Gao.<br/>
           <em>Maximize Your Storage Investment: Leverage IBM Storage Insights for Observability and Artificial Intelligence for IT Operations.</em><br/>
-          IBM Redbooks, 2025.<br/>
-          <a href="https://www.redbooks.ibm.com/abstracts/sg248584.html" target="_blank">Link</a>
+          IBM Redbooks, 2025.
         </li>
       </ul>
-    
-      <p>
-        Full publication list available via
-        <a href="https://orcid.org/0009-0006-7791-6879" target="_blank">ORCID</a>.
-      </p>
     </section>
 
   </main>
