@@ -4,60 +4,200 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Utkarsh Singh</title>
-  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d0d0d; --bg2: #111111; --surface: #161616;
+      --border: #222222; --accent: #c9a84c; --accent2: #e8c87a;
+      --text: #e8e4dc; --muted: #888880; --faint: #333330;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'DM Sans', sans-serif; font-weight: 300;
+      line-height: 1.7; min-height: 100vh; overflow-x: hidden;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; opacity: 0.4;
+    }
+    body::after {
+      content: ''; position: fixed; top: -20%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .container { max-width: 780px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+    header { padding: 5rem 0 4rem; border-bottom: 1px solid var(--border); opacity: 0; animation: fadeUp 0.9s ease forwards; }
+    .name { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: -0.02em; line-height: 1; color: var(--text); margin-bottom: 1rem; }
+    .name span { color: var(--accent); }
+    .subtitle { font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 300; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2.5rem; }
+    nav { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+    nav a { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 0.45rem 0.9rem; border: 1px solid var(--border); border-radius: 2px; transition: all 0.2s ease; }
+    nav a:hover { color: var(--accent); border-color: var(--accent); background: rgba(201,168,76,0.04); }
+    main { padding: 4rem 0 6rem; }
+    section { margin-bottom: 4rem; opacity: 0; animation: fadeUp 0.9s ease forwards; }
+    section:nth-child(1) { animation-delay: 0.15s; }
+    section:nth-child(2) { animation-delay: 0.25s; }
+    section:nth-child(3) { animation-delay: 0.35s; }
+    section:nth-child(4) { animation-delay: 0.45s; }
+    section:nth-child(5) { animation-delay: 0.55s; }
+    section:nth-child(6) { animation-delay: 0.65s; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .about-text p { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 300; line-height: 1.8; color: var(--text); margin-bottom: 1.1rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text em { font-style: italic; color: var(--accent2); }
+    .focus-grid { display: grid; gap: 0.75rem; }
+    .focus-item { padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-left: 2px solid var(--accent); border-radius: 2px; transition: all 0.2s ease; }
+    .focus-item:hover { background: #1a1a1a; border-left-color: var(--accent2); }
+    .focus-item p { font-size: 0.9rem; color: #b8b4ac; line-height: 1.55; }
+    .exp-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.3rem; }
+    .exp-title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 500; color: var(--text); }
+    .exp-date { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.06em; }
+    .exp-org { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 0.06em; margin-bottom: 0.6rem; }
+    .exp-desc { font-size: 0.88rem; color: #999890; line-height: 1.65; }
+    .pub-item { padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 500; color: var(--text); margin-bottom: 0.3rem; line-height: 1.4; }
+    .pub-meta { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.04em; }
+    .pub-meta .venue { color: var(--accent); }
+    .contact-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .contact-link { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border: 1px solid var(--border); border-radius: 2px; transition: all 0.2s ease; }
+    .contact-link:hover { color: var(--accent); border-color: var(--accent); background: rgba(201,168,76,0.04); }
+    .contact-link svg { width: 13px; height: 13px; opacity: 0.5; flex-shrink: 0; }
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; position: relative; z-index: 1; }
+    footer p { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--faint); letter-spacing: 0.1em; text-align: center; text-transform: uppercase; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 600px) {
+      header { padding: 3.5rem 0 3rem; }
+      .exp-header { flex-direction: column; }
+      .contact-row { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Utkarsh Singh</h1>
-    <p class="subtitle">
-      Machine Learning Engineer · Quant-Oriented Applied Mathematician
-    </p>
+<header>
+  <div class="container">
+    <h1 class="name">Utkarsh <span>Singh</span></h1>
+    <p class="subtitle">ML Engineer &nbsp;·&nbsp; Applied Mathematician &nbsp;·&nbsp; Researcher</p>
     <nav>
       <a href="projects.html">Projects</a>
-      <a href="resume.pdf" target="_blank">Resume</a>
+      <a href="resume.pdf" target="_blank">Résumé</a>
       <a href="https://www.linkedin.com/in/utkarsh-singh-245a14219/" target="_blank">LinkedIn</a>
       <a href="https://orcid.org/0009-0006-7791-6879" target="_blank">ORCID</a>
       <a href="https://github.com/luminous-prize" target="_blank">GitHub</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main>
+<main>
+  <div class="container">
+
     <section>
-      <h2>About</h2>
-      <p>
-        I design machine learning and statistical systems that turn uncertain data into reliable decisions.
-      </p>
-      <p>
-        My background spans applied mathematics, ML engineering, and production software
-        systems. I’ve worked on anomaly detection, time-series forecasting, large-scale
-        telemetry pipelines, and LLM-based decision support systems in production at IBM,
-        and on statistically grounded modeling problems in academic research settings.
-      </p>
-      <p>
-        I’m currently pursuing an MSE in Applied Mathematics and Statistics at Johns Hopkins University.
-      </p>
+      <div class="section-label">About</div>
+      <div class="about-text">
+        <p>I build machine learning and statistical systems that turn uncertain, high-dimensional data into <em>reliable decisions</em>.</p>
+        <p>My background spans production ML engineering at IBM — anomaly detection, time-series forecasting, LLM-based decision support, and agentic pipelines on terabyte-scale telemetry — and academic research at Johns Hopkins, where I work on longitudinal clinical modeling, probabilistic reasoning pipelines, and LLM evaluation methodology.</p>
+        <p>Currently completing an MSE in Applied Mathematics at Johns Hopkins University, where I also teach machine learning and mentor student teams building AI systems end to end.</p>
+      </div>
     </section>
 
     <section>
-      <h2>Current Focus</h2>
-      <ul>
-        <li>Time-series forecasting and risk modeling for data-driven decision systems</li>
-        <li>Decision-aware modeling that translates probabilistic predictions into actions</li>
-        <li>Evaluation and integration of LLMs in diagnostic and retrieval workflows</li>
-        <li>Robust statistical modeling under imbalance and non-stationarity</li>
-      </ul>
+      <div class="section-label">Current Focus</div>
+      <div class="focus-grid">
+        <div class="focus-item"><p>Early prediction of Severe Maternal Morbidity from longitudinal EHR data using Mamba State Space Models and cost-sensitive learning under extreme class imbalance</p></div>
+        <div class="focus-item"><p>Probabilistic pipelines for scientific claim validation over high-dimensional evidence at the Johns Hopkins Data Science and AI Institute</p></div>
+        <div class="focus-item"><p>Evaluation methodology for frontier LLMs — including chain-of-thought tampering detection across 120B–235B parameter reasoning models</p></div>
+        <div class="focus-item"><p>Decision-aware modeling that translates probabilistic forecasts into placement, migration, and risk actions under operational constraints</p></div>
+      </div>
     </section>
 
     <section>
-      <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:utkarshs.bsingh@gmail.com">utkarshs.bsingh@gmail.com</a>
-      </p>
+      <div class="section-label">Experience</div>
+      <div class="exp-item">
+        <div class="exp-header"><span class="exp-title">Machine Learning Engineer</span><span class="exp-date">Jul 2023 – Jul 2025</span></div>
+        <div class="exp-org">IBM Systems Development Lab</div>
+        <p class="exp-desc">Built production anomaly detection on multivariate time-series telemetry across 150+ KPI features using TransformerAE and LSTM autoencoders. Engineered agentic pipelines including an open-source MCP observability service and an instruction-tuned LLM assistant with QLoRA alignment. Built ransomware detection classifiers on 500k+ FlashCore Module traces at sub-1% false positive rates. Designed telemetry ingestion pipelines processing 2+ TB/day on IBM Cloud.</p>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header"><span class="exp-title">Research Assistant</span><span class="exp-date">Nov 2025 – Present</span></div>
+        <div class="exp-org">Johns Hopkins Bloomberg School of Public Health</div>
+        <p class="exp-desc">Modeling longitudinal maternal EHR and ecological data for early Severe Maternal Morbidity prediction. Optimizing Mamba State Space Models for sparse and irregular clinical observations. Applying cost-sensitive learning to improve rare-event detection under 99:1 class imbalance.</p>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header"><span class="exp-title">Research Assistant</span><span class="exp-date">Oct 2025 – Present</span></div>
+        <div class="exp-org">Johns Hopkins Data Science and AI Institute</div>
+        <p class="exp-desc">Building probabilistic pipelines to test scientific feasibility of complex claims over high-dimensional evidence. Decomposing claims into tractable hypotheses and calibrating models to improve decision reliability.</p>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header"><span class="exp-title">Graduate Teaching Assistant</span><span class="exp-date">Aug 2025 – Present</span></div>
+        <div class="exp-org">Johns Hopkins Whiting School of Engineering</div>
+        <p class="exp-desc">TA for Machine Learning (EN.601.475/675) and AI-Enabled Software Engineering (EN.601.423/623). Leads recitations on neural networks, RL, and causal inference. Mentors student teams through end-to-end AI project development. Collaborates on assignments and exams with CS faculty.</p>
+      </div>
     </section>
-  </main>
 
-  <footer>
-    <p>© Utkarsh Singh</p>
-  </footer>
+    <section>
+      <div class="section-label">Selected Publications</div>
+      <div class="pub-item">
+        <div class="pub-title">A Machine Learning Approach to Predict, Optimize, and Build Fantasy Cricket Teams Using Evolutionary Algorithm</div>
+        <div class="pub-meta"><span class="venue">Springer LNNS · ICCIIR</span> &nbsp;·&nbsp; Book Chapter &nbsp;·&nbsp; 2026</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">Transforming Precision Agriculture through Deep Learning: CNN Encoder-Decoders and a Hybrid YOLOv8-SAM Solution for Advanced Grape Cluster Segmentation</div>
+        <div class="pub-meta"><span class="venue">IEEE HSWTech</span> &nbsp;·&nbsp; Conference Paper &nbsp;·&nbsp; 2025</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">Intelligent Storage Management with AIOps using IBM Storage Insights</div>
+        <div class="pub-meta"><span class="venue">IBM Redpaper</span> &nbsp;·&nbsp; Technical White Paper &nbsp;·&nbsp; 2025</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">Ecosystem Integration with IBM Storage Insights</div>
+        <div class="pub-meta"><span class="venue">IBM Redpaper</span> &nbsp;·&nbsp; Technical White Paper &nbsp;·&nbsp; 2025</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">AI Meditation App: Enhancing Mindfulness Through AI and EEG Integration</div>
+        <div class="pub-meta"><span class="venue">IRE Journals</span> &nbsp;·&nbsp; 2025</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">Battery Temperature Forecasting Method: Li-Ion Batteries Case Study</div>
+        <div class="pub-meta"><span class="venue">ICICT</span> &nbsp;·&nbsp; Conference Paper &nbsp;·&nbsp; 2024</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Contact</div>
+      <div class="contact-row">
+        <a href="mailto:utkarshs.bsingh@gmail.com" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Email
+        </a>
+        <a href="https://www.linkedin.com/in/utkarsh-singh-245a14219/" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/luminous-prize" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub
+        </a>
+        <a href="https://orcid.org/0009-0006-7791-6879" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" fill="currentColor" font-family="monospace">iD</text></svg>
+          ORCID
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Utkarsh Singh &nbsp;·&nbsp; Johns Hopkins University</p>
+  </div>
+</footer>
 </body>
 </html>
