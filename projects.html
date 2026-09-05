@@ -3,109 +3,292 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects – Utkarsh Singh</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <title>Projects & Publications - Utkarsh Singh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --bg: #0d0d0d; --surface: #141414; --surface2: #181818;
-      --border: #222222; --accent: #c9a84c; --accent2: #e8c87a;
-      --text: #e8e4dc; --muted: #888880; --faint: #2e2e2c;
-      --tag-bg: #1c1c1a; --tag-border: #2a2a28;
+      --bg: #fcfcfa;
+      --surface: #f5f4f1;
+      --border: #e2e0db;
+      --border-light: #eeedea;
+      --accent: #2b5a78;
+      --accent-light: #e8f0f5;
+      --accent-hover: #1d4259;
+      --text: #1a1a1a;
+      --text-secondary: #555550;
+      --text-tertiary: #8a8a82;
+      --tag-bg: #f0efec;
+      --tag-border: #dddbd6;
     }
+
     html { scroll-behavior: smooth; }
+
     body {
-      background: var(--bg); color: var(--text);
-      font-family: 'DM Sans', sans-serif; font-weight: 300;
-      line-height: 1.7; min-height: 100vh; overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
-    body::before {
-      content: ''; position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 9999; opacity: 0.4;
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
-    body::after {
-      content: ''; position: fixed; bottom: -20%; left: -10%;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);
-      pointer-events: none; z-index: 0;
+
+    /* ── Header ── */
+    header {
+      padding: 4rem 0 2.5rem;
+      border-bottom: 1.5px solid var(--border);
     }
-    .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
 
-    /* Header */
-    header { padding: 4rem 0 3.5rem; border-bottom: 1px solid var(--border); opacity: 0; animation: fadeUp 0.9s ease forwards; }
-    .header-top { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.6rem; }
-    .page-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.2rem, 6vw, 4rem); letter-spacing: -0.02em; color: var(--text); }
-    .page-title span { color: var(--accent); }
-    .back-home { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
-    .back-home:hover { color: var(--accent); }
-    .back-home svg { width: 12px; height: 12px; }
-    nav { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 1.5rem; }
-    nav a { font-family: 'DM Mono', monospace; font-size: 0.68rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 0.4rem 0.85rem; border: 1px solid var(--border); border-radius: 2px; transition: all 0.2s ease; }
-    nav a:hover { color: var(--accent); border-color: var(--accent); background: rgba(201,168,76,0.04); }
+    .header-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
 
-    /* Main */
-    main { padding: 4rem 0 6rem; }
+    .page-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.1;
+    }
 
-    /* Category block */
-    .category { margin-bottom: 5rem; opacity: 0; animation: fadeUp 0.9s ease forwards; }
-    .category:nth-child(1) { animation-delay: 0.1s; }
-    .category:nth-child(2) { animation-delay: 0.2s; }
-    .category:nth-child(3) { animation-delay: 0.3s; }
-    .category:nth-child(4) { animation-delay: 0.4s; }
+    .back-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.15s;
+    }
 
-    .category-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.75rem; display: flex; align-items: center; gap: 0.8rem; }
-    .category-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .back-link:hover { color: var(--accent); }
+    .back-link svg { width: 14px; height: 14px; }
 
-    /* Project card */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1.25rem;
+    }
+
+    nav a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 0.4rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.15s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    /* ── Main ── */
+    main { padding: 3rem 0 5rem; }
+
+    /* ── Category ── */
+    .category { margin-bottom: 4rem; }
+
+    .category-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    /* ── Project Card ── */
     .project-card {
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      padding: 1.75rem;
-      margin-bottom: 1rem;
-      transition: border-color 0.25s ease, background 0.25s ease;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+      padding: 1.5rem;
+      margin-bottom: 0.85rem;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .project-card:hover {
+      background: #efeeeb;
+      border-color: #d8d6d1;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 1.08rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .card-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      padding-top: 0.15rem;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 0.85rem;
+    }
+
+    .card-bullets {
+      list-style: none;
+      margin-bottom: 0.85rem;
+    }
+
+    .card-bullets li {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding: 0.15rem 0 0.15rem 1rem;
       position: relative;
-      overflow: hidden;
     }
-    .project-card::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-      width: 2px; background: var(--accent);
-      transform: scaleY(0); transform-origin: bottom;
-      transition: transform 0.3s ease;
+
+    .card-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
     }
-    .project-card:hover { background: var(--surface2); border-color: #333330; }
-    .project-card:hover::before { transform: scaleY(1); }
 
-    .card-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.5rem; }
-    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; color: var(--text); line-height: 1.3; }
-    .card-meta { font-family: 'DM Mono', monospace; font-size: 0.63rem; color: var(--accent); letter-spacing: 0.06em; white-space: nowrap; padding-top: 0.2rem; }
-    .card-desc { font-size: 0.9rem; color: #a8a49c; line-height: 1.65; margin-bottom: 1rem; }
-    .card-bullets { list-style: none; margin-bottom: 1rem; }
-    .card-bullets li { font-size: 0.85rem; color: #888880; line-height: 1.6; padding: 0.2rem 0 0.2rem 1rem; position: relative; }
-    .card-bullets li::before { content: '·'; position: absolute; left: 0; color: var(--accent); font-size: 1rem; line-height: 1.4; }
-    .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-    .tag { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.06em; color: var(--muted); background: var(--tag-bg); border: 1px solid var(--tag-border); border-radius: 2px; padding: 0.2rem 0.55rem; }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
 
-    /* Publications */
-    .pub-group-title { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--faint); }
-    .pub-group { margin-bottom: 2.5rem; }
-    .pub-item { padding: 1.1rem 0; border-bottom: 1px solid var(--faint); }
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      border-radius: 4px;
+      padding: 0.18rem 0.5rem;
+    }
+
+    /* ── Publications ── */
+    .pub-group { margin-bottom: 2rem; }
+
+    .pub-group-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .pub-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
     .pub-item:last-child { border-bottom: none; }
-    .pub-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 500; color: var(--text); margin-bottom: 0.3rem; line-height: 1.4; }
-    .pub-authors { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.25rem; line-height: 1.5; }
-    .pub-authors strong { color: #b8b4ac; }
-    .pub-venue { font-family: 'DM Mono', monospace; font-size: 0.63rem; color: var(--accent); letter-spacing: 0.04em; }
-    .gold-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; color: var(--accent); background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2); border-radius: 2px; padding: 0.25rem 0.6rem; margin-bottom: 1.25rem; }
 
-    /* Footer */
-    footer { border-top: 1px solid var(--border); padding: 2rem 0; position: relative; z-index: 1; }
-    footer p { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--faint); letter-spacing: 0.1em; text-align: center; text-transform: uppercase; }
+    .pub-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+      line-height: 1.4;
+    }
 
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .pub-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .pub-title a:hover { color: var(--accent); }
+
+    .pub-authors {
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+      margin-bottom: 0.2rem;
+      line-height: 1.5;
+    }
+
+    .pub-authors strong { color: var(--text-secondary); font-weight: 500; }
+
+    .pub-venue {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid #c8dde8;
+      border-radius: 5px;
+      padding: 0.25rem 0.65rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .badge svg { flex-shrink: 0; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0;
+    }
+
+    footer p {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      text-align: center;
+    }
 
     @media (max-width: 600px) {
-      header { padding: 3rem 0 2.5rem; }
+      header { padding: 3rem 0 2rem; }
       .card-header { flex-direction: column; }
       .card-meta { white-space: normal; }
     }
@@ -116,15 +299,15 @@
 <header>
   <div class="container">
     <div class="header-top">
-      <h1 class="page-title">Projects <span>&</span> Publications</h1>
-      <a href="index.html" class="back-home">
+      <h1 class="page-title">Projects & Publications</h1>
+      <a href="index.html" class="back-link">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
         Back
       </a>
     </div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="resume.pdf" target="_blank">Résumé</a>
+      <a href="resume.pdf" target="_blank">Resume</a>
       <a href="https://github.com/luminous-prize" target="_blank">GitHub</a>
       <a href="https://www.linkedin.com/in/utkarsh-singh-245a14219/" target="_blank">LinkedIn</a>
     </nav>
@@ -134,20 +317,137 @@
 <main>
   <div class="container">
 
-    <!-- PRODUCTION SYSTEMS -->
+    <!-- ═══ RESEARCH — JOHNS HOPKINS ═══ -->
     <div class="category">
-      <div class="category-label">Production Systems · IBM</div>
+      <h2 class="category-title">Research at Johns Hopkins</h2>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-title">HopDoc: Clinical Reasoning System on REACH EHR Data</span>
+          <span class="card-meta">CDHAI &middot; In Progress</span>
+        </div>
+        <p class="card-desc">Clinical foundation model initiative on the Johns Hopkins REACH de-identified EHR dataset for congestive heart failure readmission and mortality prediction.</p>
+        <ul class="card-bullets">
+          <li>Profiled 8.3M patients (3.2M with clinical notes, 1.12B structured OMOP events) and designed the CHF cohort: 103,577 patients, 17.1% 30-day readmission, 28.8% mortality</li>
+          <li>Developed a staged 4-phase IRB access strategy (single-condition retrospective through generalist CDS), escalated to school leadership</li>
+          <li>Starting with fine-tuned clinical BERT encoder for binary and time-to-event readmission classification, with an autoregressive rollout planned for reasoning traces</li>
+        </ul>
+        <div class="tags"><span class="tag">PyTorch</span><span class="tag">OMOP CDM</span><span class="tag">Clinical NLP</span><span class="tag">Foundation Models</span><span class="tag">IRB</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-title">Lark: AI Knowledge Platform for Carey Business School</span>
+          <span class="card-meta">CDHAI &middot; Shipped</span>
+        </div>
+        <p class="card-desc">AI-powered knowledge platform enabling faculty and staff to query HR policy documents with cited, sourced answers via a RAG pipeline.</p>
+        <ul class="card-bullets">
+          <li>Built end-to-end: PDF ingestion with Claude Haiku Markdown reformatting, chunked full-text indexing in PostgreSQL, source-cited chat interface, interactive document viewer with passage highlighting</li>
+          <li>Deployed on Azure App Service with React/TypeScript frontend and Bun/Elysia backend, using Azure Blob Storage and LLM tool-calling (GPT + Claude)</li>
+          <li>Shipped 10+ production PRs covering highlight precision, Azure SAS credential fallbacks, deduplication, and PDF text normalization for legacy documents</li>
+        </ul>
+        <div class="tags"><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Azure</span><span class="tag">RAG</span><span class="tag">LLM Tool-Calling</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-title">AACSB Faculty Qualification Analyzer</span>
+          <span class="card-meta">CDHAI &middot; Shipped</span>
+        </div>
+        <p class="card-desc">Automated system evaluating faculty CVs against AACSB accreditation standards (SA/PA/SP/IP qualification types) for the Carey Business School.</p>
+        <ul class="card-bullets">
+          <li>Multi-stage LLM pipeline: concurrent chunk extraction, activity enrichment, and verdict evaluation across a 6-year rolling academic window</li>
+          <li>Built a consistency harness to validate determinism across repeated runs</li>
+          <li>Refactored domain rules into standalone config files, making yearly academic calendar updates a config change instead of a code change</li>
+        </ul>
+        <div class="tags"><span class="tag">LLMs</span><span class="tag">Bun</span><span class="tag">Elysia</span><span class="tag">Drizzle</span><span class="tag">Azure</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-title">Multimodal LLM-as-Judge for Academic Paper Quality</span>
+          <span class="card-meta">DSAI &middot; In Progress</span>
+        </div>
+        <p class="card-desc">Multi-modal pipeline for automated paper quality screening, combining visual analysis and full-text evaluation into a normalized quality score.</p>
+        <ul class="card-bullets">
+          <li>Fuses first-page visual analysis, extracted figure inspection, and full-text evaluation across 35 weighted rubric criteria (visual, stylistic, content)</li>
+          <li>Evaluated on 200 papers: 0 false negatives on high-quality papers, 5/7 low-quality papers correctly flagged</li>
+          <li>Benchmarking open-source alternatives with Qwen2.5-VL-7B served via vLLM under identical rubric and scoring scheme</li>
+        </ul>
+        <div class="tags"><span class="tag">Multimodal LLMs</span><span class="tag">vLLM</span><span class="tag">Qwen2.5-VL</span><span class="tag">Evaluation</span><span class="tag">Python</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-title">Chain-of-Thought Tampering Detection in Frontier LLMs</span>
+          <span class="card-meta">EMNLP 2026</span>
+        </div>
+        <p class="card-desc">Evaluated tampering detection capabilities of 120B-235B parameter reasoning models by systematically perturbing chain-of-thought traces across multi-domain reasoning benchmarks.</p>
+        <ul class="card-bullets">
+          <li>Built an Inspect AI evaluation pipeline applying step deletion, cross-model substitution, and semantic injection</li>
+          <li>Quantified detection performance using nonparametric bootstrap confidence intervals</li>
+          <li>Found that detection sensitivity differs fundamentally between reasoning traces and final outputs</li>
+        </ul>
+        <div class="tags"><span class="tag">Inspect AI</span><span class="tag">LLM Evaluation</span><span class="tag">Reasoning Models</span><span class="tag">Statistical Testing</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-title">Canadian Market Analysis: Agentic RAG over Earnings Transcripts</span>
+          <span class="card-meta">Financial NLP</span>
+        </div>
+        <p class="card-desc">Agentic RAG system for structured financial reasoning over 83 Canadian earnings call transcripts across 13 major equities spanning Q2 2024 - Q1 2026.</p>
+        <ul class="card-bullets">
+          <li>Built a LangGraph agent with routing, retrieval grading, hallucination detection, and self-correcting reformulation loops</li>
+          <li>Integrated PostgreSQL + pgvector with 768-D local embeddings; replaced LDA with BERTopic for stable topic discovery</li>
+          <li>Speaker-aware chunking enabling management-vs-analyst sentiment gap analysis with FinBERT</li>
+        </ul>
+        <div class="tags"><span class="tag">LangGraph</span><span class="tag">pgvector</span><span class="tag">BERTopic</span><span class="tag">FinBERT</span><span class="tag">FastAPI</span><span class="tag">Docker</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-title">Maternal Morbidity ML: Research Comprehension System</span>
+          <span class="card-meta">Hybrid Retrieval</span>
+        </div>
+        <p class="card-desc">Corpus-reasoning system answering natural-language questions across 99 ML papers on maternal morbidity, combining symbolic reasoning, citation-graph traversal, SQL aggregation, and semantic retrieval.</p>
+        <ul class="card-bullets">
+          <li>Hybrid architecture: SQLite, FAISS, and NetworkX citation graphs indexing ~12,000 claim units</li>
+          <li>Typed query routing across eight reasoning tiers including contradiction detection and quantitative reasoning</li>
+          <li>Automated extraction from 99 papers using Anthropic Haiku at sub-$0.002 average query cost</li>
+        </ul>
+        <div class="tags"><span class="tag">FAISS</span><span class="tag">SQLite</span><span class="tag">NetworkX</span><span class="tag">Anthropic</span><span class="tag">Hybrid RAG</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-title">Credit Default Risk Modeling</span>
+          <span class="card-meta">Quantitative Modeling</span>
+        </div>
+        <p class="card-desc">Credit default prediction using regularized logistic regression with temporal stability, asymmetric error costs, and decision-aware calibration.</p>
+        <ul class="card-bullets">
+          <li>Behaviorally motivated features from utilization, payment history, and exposure dynamics</li>
+          <li>AUC 0.82 and KS 0.41, improving rank-ordering power by 17% over baseline</li>
+          <li>Reduced false negatives by 24% at fixed precision under cost-sensitive objectives</li>
+        </ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Logistic Regression</span><span class="tag">Risk Modeling</span><span class="tag">Calibration</span></div>
+      </div>
+    </div>
+
+    <!-- ═══ PRODUCTION SYSTEMS — IBM ═══ -->
+    <div class="category">
+      <h2 class="category-title">Production Systems at IBM</h2>
 
       <div class="project-card">
         <div class="card-header">
           <span class="card-title">Ransomware Threat Detection for FlashSystem</span>
-          <span class="card-meta">IBM · Security ML</span>
+          <span class="card-meta">IBM &middot; Security ML</span>
         </div>
-        <p class="card-desc">Production-grade ransomware detection system using ensemble classifiers trained on over 500,000 FlashCore Module filesystem traces, integrated directly into the Storage Virtualize stack.</p>
+        <p class="card-desc">Production ransomware detection using ensemble classifiers trained on 500,000+ FlashCore Module filesystem traces, integrated into the Storage Virtualize stack.</p>
         <ul class="card-bullets">
           <li>Trained SnapML-based ensemble models with automated class re-balancing and cross-family validation</li>
           <li>Achieved &lt;1% false-positive rate on live production workloads across unseen ransomware variants</li>
-          <li>Integrated inference layer to trigger early alerts, immutable snapshots, and forensic trace dashboards</li>
+          <li>Integrated inference to trigger early alerts, immutable snapshots, and forensic trace dashboards</li>
         </ul>
         <div class="tags"><span class="tag">Python</span><span class="tag">SnapML</span><span class="tag">Scikit-learn</span><span class="tag">Time-Series</span><span class="tag">Security</span></div>
       </div>
@@ -155,13 +455,13 @@
       <div class="project-card">
         <div class="card-header">
           <span class="card-title">Workload Placement Advisor</span>
-          <span class="card-meta">IBM · Forecasting & Optimization</span>
+          <span class="card-meta">IBM &middot; Forecasting</span>
         </div>
         <p class="card-desc">Forecasting-driven placement system for enterprise block-storage I/O demand prediction and SLA-aware optimization across 100+ FlashSystem arrays.</p>
         <ul class="card-bullets">
-          <li>Benchmarked ARIMA-style models against PatchTST and Tiny Time Mixer (TTM); improved out-of-sample accuracy by 25%</li>
+          <li>Benchmarked ARIMA against PatchTST and Tiny Time Mixer (TTM); improved out-of-sample accuracy by 25%</li>
           <li>Operationalized a decision layer translating probabilistic forecasts into placement and migration actions</li>
-          <li>Prevented nearly 10,000 potential SLA violations through forecast-aware hybrid compatibility scoring</li>
+          <li>Prevented nearly 10,000 potential SLA violations through forecast-aware scoring</li>
         </ul>
         <div class="tags"><span class="tag">PatchTST</span><span class="tag">TTM</span><span class="tag">Time-Series</span><span class="tag">Decision Optimization</span><span class="tag">Python</span></div>
       </div>
@@ -169,12 +469,12 @@
       <div class="project-card">
         <div class="card-header">
           <span class="card-title">IBM Storage Insights MCP Server</span>
-          <span class="card-meta">Open Source · Agentic AI</span>
+          <span class="card-meta">Open Source &middot; Agentic AI</span>
         </div>
         <p class="card-desc">Open-source Model Context Protocol server exposing IBM Storage Insights observability capabilities to agent-based AI workflows and Claude Desktop.</p>
         <ul class="card-bullets">
-          <li>Designed a Python MCP server exposing 13 observability tools backed by Storage Insights APIs</li>
-          <li>Enabled integration via stdio and streamable HTTP with multi-tenant credential handling</li>
+          <li>Python MCP server exposing 13 observability tools backed by Storage Insights APIs</li>
+          <li>stdio and streamable HTTP transport with multi-tenant credential handling</li>
           <li>Reduced end-to-end issue identification latency by 15% through autonomous agent-driven diagnostics</li>
         </ul>
         <div class="tags"><span class="tag">Python</span><span class="tag">MCP</span><span class="tag">LLM Tooling</span><span class="tag">Observability</span><span class="tag">Open Source</span></div>
@@ -183,7 +483,7 @@
       <div class="project-card">
         <div class="card-header">
           <span class="card-title">GenAI Ticket Deflection System</span>
-          <span class="card-meta">IBM · Applied LLM</span>
+          <span class="card-meta">IBM &middot; Applied LLM</span>
         </div>
         <p class="card-desc">GDPR-safe support-ticket deflection pipeline using clustering and retrieval-driven FAQ generation across 26,000+ historical tickets.</p>
         <ul class="card-bullets">
@@ -197,92 +497,29 @@
       <div class="project-card">
         <div class="card-header">
           <span class="card-title">GenAI Observability Chatbot for Storage Insights</span>
-          <span class="card-meta">Open Source · AIOps</span>
+          <span class="card-meta">Open Source &middot; AIOps</span>
         </div>
         <p class="card-desc">Natural-language observability chatbot translating free-text queries into structured Storage Insights API calls using Granite and Llama models via IBM Watsonx.</p>
         <ul class="card-bullets">
-          <li>Implemented intent detection and entity extraction for alerts, metrics, volumes, and tenant diagnostics</li>
-          <li>Designed as a community-driven reference architecture for GenAI-enabled AIOps workflows</li>
+          <li>Intent detection and entity extraction for alerts, metrics, volumes, and tenant diagnostics</li>
+          <li>Community-driven reference architecture for GenAI-enabled AIOps workflows</li>
         </ul>
         <div class="tags"><span class="tag">LLMs</span><span class="tag">Granite</span><span class="tag">Llama</span><span class="tag">Prompt Engineering</span><span class="tag">REST APIs</span></div>
       </div>
     </div>
 
-    <!-- RESEARCH PROJECTS -->
+    <!-- ═══ ACADEMIC PROJECTS ═══ -->
     <div class="category">
-      <div class="category-label">Research · Johns Hopkins</div>
-
-      <div class="project-card">
-        <div class="card-header">
-          <span class="card-title">Canadian Market Analysis — Agentic RAG over Earnings Transcripts</span>
-          <span class="card-meta">JHU · Agentic AI · Financial NLP</span>
-        </div>
-        <p class="card-desc">Agentic Retrieval-Augmented Generation system for structured financial reasoning over 83 Canadian earnings call transcripts across 13 major equities spanning Q2 2024 – Q1 2026.</p>
-        <ul class="card-bullets">
-          <li>Built a LangGraph agent with routing, retrieval grading, hallucination detection, and self-correcting reformulation loops</li>
-          <li>Integrated PostgreSQL + pgvector with 768-D local embeddings; replaced LDA with BERTopic for stable topic discovery</li>
-          <li>Implemented speaker-aware chunking enabling management-vs-analyst sentiment gap analysis</li>
-          <li>Combined FinBERT sentiment scoring with sector-aware ticker resolution and OpenRouter synthesis</li>
-        </ul>
-        <div class="tags"><span class="tag">LangGraph</span><span class="tag">pgvector</span><span class="tag">BERTopic</span><span class="tag">FinBERT</span><span class="tag">FastAPI</span><span class="tag">Docker</span></div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-header">
-          <span class="card-title">Maternal Morbidity ML — Research Comprehension System</span>
-          <span class="card-meta">JHU · Hybrid Retrieval · Research AI</span>
-        </div>
-        <p class="card-desc">Corpus-reasoning system for answering natural-language questions across 99 ML papers on maternal morbidity, combining symbolic reasoning, citation-graph traversal, SQL aggregation, and semantic retrieval.</p>
-        <ul class="card-bullets">
-          <li>Built hybrid architecture combining SQLite, FAISS, and NetworkX citation graphs; indexed ~12,000 claim units</li>
-          <li>Implemented typed query routing across eight reasoning tiers including contradiction detection and quantitative reasoning</li>
-          <li>Automated structured extraction from 99 papers using Anthropic Haiku at sub-$0.002 average query cost</li>
-          <li>Generated fully cited synthesis outputs with section-level grounding</li>
-        </ul>
-        <div class="tags"><span class="tag">FAISS</span><span class="tag">SQLite</span><span class="tag">NetworkX</span><span class="tag">Anthropic</span><span class="tag">Hybrid RAG</span></div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-header">
-          <span class="card-title">Chain-of-Thought Tampering Detection in Frontier LLMs</span>
-          <span class="card-meta">JHU · LLM Evaluation · Nov 2025 – Feb 2026</span>
-        </div>
-        <p class="card-desc">Evaluated tampering detection capabilities of 120B–235B parameter reasoning models by systematically perturbing chain-of-thought traces across multi-domain reasoning benchmarks.</p>
-        <ul class="card-bullets">
-          <li>Built an Inspect AI–based evaluation pipeline applying step deletion, cross-model substitution, and semantic injection</li>
-          <li>Quantified post-completion and in-generation detection performance using nonparametric bootstrap confidence intervals</li>
-          <li>Found that detection sensitivity differs fundamentally between reasoning traces and final outputs</li>
-        </ul>
-        <div class="tags"><span class="tag">Inspect AI</span><span class="tag">LLM Evaluation</span><span class="tag">Reasoning Models</span><span class="tag">Statistical Testing</span></div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-header">
-          <span class="card-title">Credit Default Risk Modeling</span>
-          <span class="card-meta">JHU · Quantitative Modeling</span>
-        </div>
-        <p class="card-desc">Credit default prediction model using regularized logistic regression, emphasizing temporal stability, asymmetric error costs, and decision-aware calibration over raw accuracy.</p>
-        <ul class="card-bullets">
-          <li>Engineered behaviorally motivated features from utilization, payment history, and exposure dynamics</li>
-          <li>Achieved AUC 0.82 and KS 0.41, improving rank-ordering power by 17% over naïve baseline</li>
-          <li>Reduced false negatives by 24% at fixed precision under cost-sensitive objectives</li>
-        </ul>
-        <div class="tags"><span class="tag">Python</span><span class="tag">Logistic Regression</span><span class="tag">Risk Modeling</span><span class="tag">Calibration</span></div>
-      </div>
-    </div>
-
-    <!-- ACADEMIC / DEEP LEARNING -->
-    <div class="category">
-      <div class="category-label">Academic · Deep Learning & Experimentation</div>
+      <h2 class="category-title">Academic Projects</h2>
 
       <div class="project-card">
         <div class="card-header">
           <span class="card-title">Multilingual Mixture-of-Experts Transformer</span>
-          <span class="card-meta">JHU · Deep Learning</span>
+          <span class="card-meta">Deep Learning</span>
         </div>
-        <p class="card-desc">Sparse Mixture-of-Experts Transformer for multilingual language modeling, implementing top-k routing and load-balancing loss in PyTorch.</p>
+        <p class="card-desc">Sparse Mixture-of-Experts Transformer for multilingual language modeling with top-k routing and load-balancing loss in PyTorch.</p>
         <ul class="card-bullets">
-          <li>Scaled parameter count by 3× at constant inference FLOPs via sparse expert routing</li>
+          <li>Scaled parameter count by 3x at constant inference FLOPs via sparse expert routing</li>
           <li>Analyzed token-level expert specialization across multiple languages</li>
         </ul>
         <div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">MoE</span><span class="tag">Multilingual NLP</span></div>
@@ -291,87 +528,93 @@
       <div class="project-card">
         <div class="card-header">
           <span class="card-title">LLM Sensitivity to Politeness and Emphasis</span>
-          <span class="card-meta">JHU · LLM Evaluation</span>
+          <span class="card-meta">LLM Evaluation</span>
         </div>
-        <p class="card-desc">Studied how linguistic framing — politeness, capitalization, emphasis — affects reasoning reliability and token usage in modern large language models.</p>
+        <p class="card-desc">How linguistic framing affects reasoning reliability and token usage in Llama 3, GPT-4, and Claude Sonnet.</p>
         <ul class="card-bullets">
-          <li>Evaluated Llama 3, GPT-4, and Claude Sonnet on controlled prompt variant sets</li>
-          <li>Observed minimal accuracy variance but measurably higher token usage under emphatic framing</li>
-          <li>Validated findings using McNemar tests, paired t-tests, and effect-size analysis</li>
+          <li>Evaluated controlled prompt variant sets across multiple frontier models</li>
+          <li>Minimal accuracy variance but measurably higher token usage under emphatic framing</li>
+          <li>Validated with McNemar tests, paired t-tests, and effect-size analysis</li>
         </ul>
         <div class="tags"><span class="tag">LLM Evaluation</span><span class="tag">Statistical Testing</span><span class="tag">Python</span></div>
       </div>
 
       <div class="project-card">
         <div class="card-header">
-          <span class="card-title">Decision Optimization for Sports Analytics Using Genetic Algorithms</span>
-          <span class="card-meta">JHU · Evolutionary Computation</span>
+          <span class="card-title">Fantasy Cricket Optimization with Genetic Algorithms</span>
+          <span class="card-meta">Springer LNNS 2026</span>
         </div>
-        <p class="card-desc">Ensemble-based predictive modeling and genetic algorithm optimization for fantasy cricket team construction under budget and role constraints.</p>
+        <p class="card-desc">Ensemble-based predictive modeling and genetic algorithm optimization for team construction under budget and role constraints.</p>
         <ul class="card-bullets">
-          <li>Trained ensemble models on historical player data to estimate performance and expected value under uncertainty</li>
-          <li>Implemented GA framework optimizing for budget, role diversity, and risk-adjusted returns</li>
-          <li>Achieved 61% accuracy identifying top-performing players; published in Springer LNNS 2026</li>
+          <li>Ensemble models estimating performance and expected value under uncertainty</li>
+          <li>GA framework optimizing budget, role diversity, and risk-adjusted returns</li>
+          <li>61% accuracy identifying top-performing players; published in Springer LNNS</li>
         </ul>
         <div class="tags"><span class="tag">Genetic Algorithms</span><span class="tag">Ensemble Models</span><span class="tag">Python</span><span class="tag">Sports Analytics</span></div>
       </div>
     </div>
 
-    <!-- PUBLICATIONS -->
+    <!-- ═══ PUBLICATIONS ═══ -->
     <div class="category">
-      <div class="category-label">Publications</div>
+      <h2 class="category-title">Publications</h2>
 
       <div class="pub-group">
-        <div class="pub-group-title">Peer-Reviewed</div>
+        <div class="pub-group-label">Peer-Reviewed</div>
+
+        <div class="pub-item">
+          <div class="pub-title"><a href="https://doi.org/10.48550/arxiv.2606.22085">Can Reasoning Models Detect Changes to their Chains of Thought?</a></div>
+          <div class="pub-authors">Sathvik Napa, <strong>Utkarsh Singh</strong>, Chengyuan Xue, Miriam Wanner, William Walden</div>
+          <div class="pub-venue">EMNLP 2026 &middot; Conference Paper</div>
+        </div>
 
         <div class="pub-item">
           <div class="pub-title">A Machine Learning Approach to Predict, Optimize, and Build Fantasy Cricket Teams Using Evolutionary Algorithm</div>
           <div class="pub-authors"><strong>Utkarsh Singh</strong>, Akarsh Singh, Parul Jadhav, Sarish Gyale, Shweta Iyer</div>
-          <div class="pub-venue">Springer LNNS · ICCIIR · Book Chapter · 2026</div>
+          <div class="pub-venue">Springer LNNS &middot; ICCIIR &middot; Book Chapter &middot; 2026</div>
         </div>
 
         <div class="pub-item">
           <div class="pub-title">Transforming Precision Agriculture through Deep Learning: CNN Encoder-Decoders and a Hybrid YOLOv8-SAM Solution for Advanced Grape Cluster Segmentation</div>
           <div class="pub-authors">Sarish Gyale, <strong>Utkarsh Singh</strong>, Yashvardhan Tekavade, Parul Jadhav</div>
-          <div class="pub-venue">IEEE HSWTech · Conference Paper · 2025</div>
+          <div class="pub-venue">IEEE HSWTech &middot; Conference Paper &middot; 2025</div>
         </div>
 
         <div class="pub-item">
           <div class="pub-title">AI Meditation App: Enhancing Mindfulness Through AI and EEG Integration</div>
           <div class="pub-authors"><strong>Utkarsh Singh</strong>, Arti Khaparde, Anish Rao, Shray Gupta, Aanjney Gupta</div>
-          <div class="pub-venue">IRE Journals · 2025</div>
+          <div class="pub-venue">IRE Journals &middot; 2025</div>
         </div>
 
         <div class="pub-item">
           <div class="pub-title">Battery Temperature Forecasting Method: Li-Ion Batteries Case Study</div>
           <div class="pub-authors"><strong>Utkarsh Singh</strong>, Vidushi Sharma, Arti Khaparde, Anustauv Roy, Madhav Gaggad</div>
-          <div class="pub-venue">ICICT · Conference Paper · 2024</div>
+          <div class="pub-venue">ICICT &middot; Conference Paper &middot; 2024</div>
         </div>
       </div>
 
       <div class="pub-group">
-        <div class="gold-badge">
-          <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <div class="badge">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           IBM Redbooks Gold Author
         </div>
-        <div class="pub-group-title">IBM Redbooks & Technical Publications</div>
+        <div class="pub-group-label">IBM Redbooks & Technical Publications</div>
 
         <div class="pub-item">
           <div class="pub-title">Ecosystem Integration with IBM Storage Insights</div>
           <div class="pub-authors"><strong>Utkarsh Singh</strong>, Vasfi Gucer, David Green, Sumesh Pahuja, Sushil Sharma, Ramakrishna Vadla</div>
-          <div class="pub-venue">IBM Redpaper · 2025</div>
+          <div class="pub-venue">IBM Redpaper &middot; 2025</div>
         </div>
 
         <div class="pub-item">
           <div class="pub-title">Intelligent Storage Management with Artificial Intelligence for IT Operations (AIOps) using IBM Storage Insights</div>
           <div class="pub-authors"><strong>Utkarsh Singh</strong>, Archana Chinnaiah, David Green, Keigo Matsubara, Ramakrishna Vadla, Vasfi Gucer et al.</div>
-          <div class="pub-venue">IBM Redpaper · 2025</div>
+          <div class="pub-venue">IBM Redpaper &middot; 2025</div>
         </div>
 
         <div class="pub-item">
           <div class="pub-title">Maximize Your Storage Investment: Leverage IBM Storage Insights for Observability and Artificial Intelligence for IT Operations</div>
-          <div class="pub-authors"><strong>Utkarsh Singh</strong>, Andy Härchen, Archana Chinnaiah, David Green, Dirk Preinl, Hrvoje Stanilovic, Keigo Matsubara, Meng Gao et al.</div>
-          <div class="pub-venue">IBM Redbooks · 2025</div>
+          <div class="pub-authors"><strong>Utkarsh Singh</strong>, Andy H&auml;rchen, Archana Chinnaiah, David Green, Dirk Preinl, Hrvoje Stanilovic, Keigo Matsubara, Meng Gao et al.</div>
+          <div class="pub-venue">IBM Redbooks &middot; 2025</div>
         </div>
       </div>
     </div>
@@ -381,7 +624,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Utkarsh Singh &nbsp;·&nbsp; Johns Hopkins University</p>
+    <p>&copy; 2026 Utkarsh Singh &middot; Johns Hopkins University</p>
   </div>
 </footer>
 </body>
